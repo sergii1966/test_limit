@@ -11,6 +11,9 @@ trait SetUserTimeTrait
 
     }
 
+    /**
+     * @return bool
+     */
     public function createOrUpdate(): bool
     {
         $model = User::query()->where([
@@ -22,8 +25,10 @@ trait SetUserTimeTrait
                 'user_id' => auth('web')->id(),
                 'ip' => $_SERVER['REMOTE_ADDR']
             ], ['user_id' => auth('web')->id(), 'user_time' => time(), 'ip' => $_SERVER['REMOTE_ADDR']])){
+
             return true;
         }
+
         return false;
     }
 }

@@ -20,7 +20,8 @@ class RegisterProcessController extends Controller
 
         return $register_process->registerUser($request) ?
             redirect()
-                ->route('home')
+                ->route('login.form')
+                ->with('success', __('Реєстрація успішна. Введіть Ваші дані'))
             :
             redirect()
                 ->route('home')

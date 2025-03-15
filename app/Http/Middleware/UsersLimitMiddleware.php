@@ -11,7 +11,7 @@ class UsersLimitMiddleware
 {
     /**
      * Handle an incoming request.
-     *
+     * Перевірка кількості аутентифікованих користувачів з заданоим часом активності
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle(Request $request, Closure $next): Response

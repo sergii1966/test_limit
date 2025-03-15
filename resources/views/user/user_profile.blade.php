@@ -4,7 +4,7 @@
 
 @section('home')
     <div class="p-6 d-flex justify-content-center">
-       <h1>Головна</h1>
+        <h1>Профвйл</h1>
     </div>
 @endsection
 

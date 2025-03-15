@@ -41,18 +41,6 @@ class LoginProcessController extends Controller
                 return redirect()->intended()->with('error', 'Щось пішло не так!');
             }
 
-//            $model = User::query()->where([
-//                'id' => auth('web')->id()
-//            ])->first();
-//
-//            if($model->userslimits()->updateOrCreate(
-//                [
-//                    'user_id' => auth('web')->id(),
-//                    'ip' => $request->getClientIp()
-//                ], ['user_id' => auth('web')->id(), 'user_time' => time(), 'ip' => $request->getClientIp()])){
-//                return redirect()->intended()->with('success', 'Все Окwwwwwwwwww!');
-//            }
-
             return redirect()->intended()->with('success', 'Все Ок!');
         }
 

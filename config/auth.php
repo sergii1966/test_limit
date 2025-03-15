@@ -112,8 +112,9 @@ return [
 
     'password_timeout' => env('AUTH_PASSWORD_TIMEOUT', 10),
 
+//    Максимальна кількість юзерів з одного ip на сайті
     'max_users_from_ip' => env('AUTH_MAX_USERS_FROM_IP', 1),
-
-    'check_time_activity_sec' => env('AUTH_CHECK_TIME_ACTIVITY_SEC', 10000),
+//    мінімальний час активності на сайті
+    'check_time_activity_sec' => env('AUTH_CHECK_TIME_ACTIVITY_SEC', 10),
 
 ];

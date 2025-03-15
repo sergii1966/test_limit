@@ -23,9 +23,9 @@ class RegisterProcessAction implements RegisterProcessContract
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ])) {
-            auth('web')->login($user);
+           // auth('web')->login($user);
 
-            event(new Registered($user));
+          //  event(new Registered($user));
 
             session()->forget(['status-verification-link-sent']);
 
