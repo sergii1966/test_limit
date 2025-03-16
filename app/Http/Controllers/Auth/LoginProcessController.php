@@ -6,7 +6,6 @@ use App\Contracts\Auth\CreateOrUpdateUserTimeContract;
 use App\Contracts\Auth\LoginProcessContract;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginProcessRequest;
-use App\Models\User;
 use Illuminate\Validation\ValidationException;
 
 class LoginProcessController extends Controller
@@ -38,12 +37,12 @@ class LoginProcessController extends Controller
 
                 $request->session()->regenerateToken();
 
-                return redirect()->intended()->with('error', 'Щось пішло не так!');
+                return redirect()->route('home')->with('error', 'Щось пішло не так!');
             }
 
-            return redirect()->intended()->with('success', 'Все Ок!');
+            return redirect()->route('profile')->with('success', 'Все Ок!');
         }
 
-        return redirect()->intended()->with('error', 'Щось пішло не так!');
+        return redirect()->route('home')->with('error', 'Щось пішло не так!');
     }
 }

@@ -16,17 +16,20 @@ trait SetUserTimeTrait
      */
     public function createOrUpdate(): bool
     {
-        $model = User::query()->where([
-            'id' => auth('web')->id()
-        ])->first();
+        if (auth('web')->check()) {
 
-        if($model->{$this->relation}()->updateOrCreate(
-            [
-                'user_id' => auth('web')->id(),
-                'ip' => $_SERVER['REMOTE_ADDR']
-            ], ['user_id' => auth('web')->id(), 'user_time' => time(), 'ip' => $_SERVER['REMOTE_ADDR']])){
+            $model = User::query()->where([
+                'id' => auth('web')->id()
+            ])->first();
 
-            return true;
+            if ($model->{$this->relation}()->updateOrCreate(
+                [
+                    'user_id' => auth('web')->id(),
+                    'ip' => $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1'
+                ], ['user_id' => auth('web')->id(), 'user_time' => time(), 'ip' => $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1'])) {
+
+                return true;
+            }
         }
 
         return false;

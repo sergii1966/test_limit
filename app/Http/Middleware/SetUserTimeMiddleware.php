@@ -20,6 +20,7 @@ class SetUserTimeMiddleware
     {
         if (auth('web')->check()){
             if(!app()->setusertime->createOrUpdate()){
+
                 auth('web')->logout();
 
                 $request->session()->invalidate();

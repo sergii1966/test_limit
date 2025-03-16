@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\ResetPasswordShowEmailFormController;
 use App\Http\Controllers\Auth\ResetPasswordSendResetLinkEmailController;
 use App\Http\Controllers\Auth\ResetPasswordProcessController;
 use App\Http\Middleware\AuthMiddleware;
+use App\Http\Middleware\UsersLimitMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/login', LoginShowFormController::class)

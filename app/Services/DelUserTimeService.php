@@ -10,7 +10,7 @@ class DelUserTimeService
     {
         if(UsersLimit::query()->where([
             'user_id' => auth('web')->id(),
-            'ip' => $_SERVER['REMOTE_ADDR']
+            'ip' => $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1'
         ])->delete()){
             return true;
         }

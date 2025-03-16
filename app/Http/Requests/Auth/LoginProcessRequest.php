@@ -22,7 +22,6 @@ class LoginProcessRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'g-recaptcha-response' => 'required|captcha',
             'email' => ['required', 'email', 'string', 'lowercase', 'max:255'],
             'password' => ['required', 'min:6']
         ];

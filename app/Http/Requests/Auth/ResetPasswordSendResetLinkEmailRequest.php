@@ -22,7 +22,6 @@ class ResetPasswordSendResetLinkEmailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //'g-recaptcha-response' => 'required|captcha',
             'email' => ['required', 'email', 'string', 'lowercase', 'max:255'],
         ];
     }

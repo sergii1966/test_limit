@@ -12,6 +12,6 @@ class UserProfileController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //
+        return view('user.user_profile');
     }
 }

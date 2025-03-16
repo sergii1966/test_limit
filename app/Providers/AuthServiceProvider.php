@@ -16,9 +16,6 @@ use App\Http\Actions\Auth\ResetPasswordProcessAction;
 use App\Http\Actions\Auth\ResetPasswordSendResetLinkEmailAction;
 use App\Services\DelUserTimeService;
 use App\Services\SetUserTimeService;
-use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -29,8 +26,6 @@ class AuthServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(LoginProcessContract::class, function ($app) {
-            // Return the desired payment gateway implementation here.
-            // Example: return new PaypalPaymentGateway();
             return new LoginProcessAction();
         });
         $this->app->bind(RegisterProcessContract::class, RegisterProcessAction::class);
